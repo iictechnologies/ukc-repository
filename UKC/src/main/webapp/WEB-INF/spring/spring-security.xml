@@ -1,0 +1,51 @@
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-4.2.xsd">
+
+<http pattern="/resources/*" security="none" />
+
+	<http auto-config="true" use-expressions="true">
+	<!-- home page will have access for admin role only -->
+		<intercept-url pattern="/home" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/finddepthprofilewithtideheights" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/users/resetpassword" access="permitAll" />
+		<!-- <intercept-url pattern="/login" access="permitAll" />
+		<intercept-url pattern="/displaylogin.htm" access="permitAll" /> -->
+		
+		<form-login
+		    login-page="/displaylogin.htm"
+		    default-target-url="/home"
+			authentication-failure-url="/displaylogin.htm"
+			username-parameter="userName"
+			password-parameter="pwd" 
+			always-use-default-target="true"
+		/>
+		<csrf />
+		<!-- By default logout will be hande by spring security  -->
+		<logout delete-cookies="JSESIONID" logout-url="/logout.htm" logout-success-url="/displaylogin.htm?logout"/> 
+		<!-- Access denied page will be shown when user with out permission access the restricted url -->
+ 		<access-denied-handler ref="customAccessDeniedHandler" />
+ 		
+ 		<!-- Session management will be handled by spring security -->
+		 <session-management session-authentication-error-url="/sessionexpired?timeout=timeout" session-fixation-protection="migrateSession">
+			<concurrency-control max-sessions="1" error-if-maximum-exceeded="false" expired-url="/sessionexpired?invalid=invalid" />
+		</session-management>
+	</http>
+	<authentication-manager>
+	  <authentication-provider >
+	 <!--  Authenticating with data base -->
+	 	<jdbc-user-service data-source-ref="dataSource" 
+		  users-by-username-query=
+		    "select username,password,enable from userlogin where username=?"
+		  authorities-by-username-query=
+		    "select ul.username, r.rolename from userlogin ul,role r where ul.roleid=r.id and username =?" />
+	  </authentication-provider>
+	</authentication-manager>
+	
+	<beans:bean id="customAccessDeniedHandler" class="com.iic.ukc.security.CustomAccessDeniedHandler" />
+</beans:beans>

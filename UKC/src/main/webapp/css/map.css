@@ -1,0 +1,1031 @@
+body {
+	margin: 0px auto;
+	padding: 0px;
+}
+
+.coordinateswindow {
+	position: absolute;
+	top: calc(50% - 200px);
+	left: calc(50% - 200px);
+	width: 400px;
+	height: 236px;
+	background: white;
+	border-radius: 5px;
+	border: 5px solid gray;
+	z-index: 2;
+	display: none;
+}
+
+.waypointm {
+	font-size: 10px;
+	background-repeat: no-repeat;
+	width: 70px;
+	height: 70px;
+	z-index: 10;
+	position: absolute;
+	top: -70px;
+	left: -35px;
+	cursor: pointer;
+	background-size: 70px 70px !important;
+	border-bottom: none;
+}
+
+.xtemarker {
+	font-size: 10px;
+	background: url(../images/xteMarker.png);
+	background-repeat: no-repeat;
+	width: 24px;
+	height: 32px;
+	z-index: 10;
+	position: absolute;
+	top: -28px;
+	left: -10px;
+	cursor: pointer;
+	background-size: 24px 32px;
+}
+
+.shipmarker {
+	font-size: 10px;
+	background: url(../images/sMarker.png);
+	background-repeat: no-repeat;
+	width: 50px;
+	height: 60px;
+	z-index: 10;
+	position: absolute;
+	top: -58px;
+	left: -24px;
+	cursor: pointer;
+	background-size: 50px 60px;
+}
+
+.addmarker {
+	font-size: 10px;
+	background: url(../images/dMarker.png);
+	background-repeat: no-repeat;
+	width: 70px;
+	height: 70px;
+	z-index: 10;
+	position: absolute;
+	background-size: 70px 70px !important;
+	cursor: pointer;
+	border-bottom: none;
+}
+
+.addmarker:ACTIVE::after, .addmarker:FOCUS::after, .addmarker:VISITED::after,
+	.waypointm:ACTIVE::after, .waypointm:FOCUS::after, .waypointm:VISITED::after
+	{
+	content: "";
+	border-bottom: 5px solid #000;
+	border-radius: 5px;
+	width: 5px;
+	height: 105%;
+	display: block;
+	margin: 0 auto;
+}
+
+.addmarker :HOVER {
+	cursor: pointer;
+}
+
+.addmarkercss {
+	font-size: 10px;
+	background: url(../images/dMarker.png);
+	background-repeat: no-repeat;
+	width: 70px;
+	height: 70px;
+	z-index: 9;
+	position: absolute;
+	background-size: 70px 70px;
+	cursor: pointer;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+
+#longrouteicon {
+	padding: 4px 0px 0px;
+	color: #fff;
+	font-size: 18px;
+	font-weight: bolder;
+	text-decoration: none;
+	text-align: center;
+	height: 32px;
+	width: 32px;
+	background-color: rgba(0, 60, 136, .5);
+	outline: none;
+	position: absolute;
+	top: 131px;
+	right: 10px;
+	cursor: pointer;
+	border-radius: 2px;
+}
+
+#clearrouteicon {
+	padding: 4px 0px 0px;
+	color: #fff;
+	font-size: 18px;
+	font-weight: bolder;
+	text-decoration: none;
+	text-align: center;
+	height: 32px;
+	width: 32px;
+	background-color: rgba(0, 60, 136, .5);
+	outline: none;
+	position: absolute;
+	top: 164px;
+	right: 10px;
+	cursor: pointer;
+	border-radius: 2px;
+}
+
+#closelongroute {
+	text-align: right;
+	margin: 5px 5px 0px 0px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+#ukcgraphdiv {
+	position: absolute;
+	right: 0px;
+	width: 100%;
+	padding-right: 5px;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+}
+
+table tr td {
+	padding: 5px;
+	font-size: 14px;
+	font-family: verdana;
+}
+
+#longroute {
+	position: absolute;
+	right: 0px;
+	width: 100%;
+	display: none;
+	z-index: 9999;
+}
+
+#longroute table tr td {
+	padding: 5px;
+	font-size: 13px;
+	font-family: verdana;
+	font-weight: bold;
+	width: 125px;
+	text-align: center;
+	color: white;
+}
+
+#longroute table tr td select, #longroute table tr td input {
+	height: 30px;
+	width: 100px;
+	background-color: #E6E6E6;
+	text-align: center;
+	outline: none;
+	padding: 5px 6px;
+}
+
+#longroute table tr td button:FOCUS, #longroute table tr td button:ACTIVE,
+	#longroute table tr td button:VISITED {
+	outline: none !important;
+}
+
+#longroutetable {
+	background: grey;
+	border: 1px solid #ccc;
+	margin: 10px auto;
+	border-radius: 5px;
+	height: calc(100% - 20px);
+}
+
+#change_password_div{
+	display : none;
+	position: absolute;
+	top: calc(50% - 220px);
+	left: calc(50% - 150px);
+	padding: 0px 0px 10px 0px;
+	width: 300px;
+    background: -webkit-linear-gradient(top, rgba(146, 135, 187, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+    background: linear-gradient(to bottom, rgba(75, 78, 76, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+    -webkit-transition: opacity 0.1s, -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
+    transition: opacity 0.1s, -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
+    transition: opacity 0.1s, transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
+    transition: opacity 0.1s, transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25), -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    z-index: 9999;
+}
+#change_password_div .control-group {
+	padding-top: 5px;
+	height: 5rem;
+    border-bottom: 1px solid #fff;
+}
+
+#change_password_div h4{	
+background-color: #0182c3;
+color: #fff;
+padding: 5px 20px 5px 20px;
+margin: 0px;
+text-align: center;
+}
+
+#change_password_div input{
+       display: inline-block;
+    height: 100%;
+    padding-left: 1.5rem;
+    font-size: 1.5rem;
+    background: transparent !important;
+    color: #FDFCFD !important;
+    margin-top: 1px;
+}
+.controls-row{
+	    height: 5rem;
+    padding-top: 2rem;
+    border-bottom: 1px solid #fff;
+
+}
+.controls-row input{
+	   outline:none;
+	   border:none;
+
+}
+.controls-row input::placeholder{
+	color:#ccc;
+}
+.changepw_btns{
+	margin:0 auto;
+	padding:15px;
+	text-align:center;
+}
+.changepw_savebtn{
+position: relative;
+    width: 40%;
+    height: 4rem;
+    color: rgba(255, 255, 255, 0.8);
+    background: #0182c3;
+    font-size: 1.5rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    overflow: hidden;
+    -webkit-transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
+    transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
+     outline:none;
+    border:none;
+     margin: 5px;
+}
+
+.changepw_closebtn{
+	width: 40%;
+    height: 4rem;
+    position: relative;
+    margin: 5px;
+    color: rgba(255, 255, 255, 0.8);
+    background: #0182c3;
+    font-size: 1.5rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    overflow: hidden;
+    -webkit-transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
+    transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
+    outline:none;
+    border:none;
+}
+.changepw_closebtn:hover {
+    background-color: #3276B1;
+    border-color: #285E8E;
+    cursor: pointer;
+}
+.changepw_savebtn:hover {
+    background-color: #3276B1;
+    border-color: #285E8E;
+    cursor: pointer;
+}
+#change_password_div input:ACTIVE, #change_password_div input:FOCUS, #change_password_div input:VISITED , #change_password_div input:ACTIVE{
+	border: none;
+	outline: none;
+}
+
+
+.changepwdfrm{
+
+    border-radius: 8px;
+    padding: 0px 25px;
+    margin: 0 auto;
+
+}
+
+.loading {
+	position: absolute;
+	right: calc(50% - 200px);
+	bottom: calc(20%);
+	width: 250px;
+	background-image: url(../images/loader.gif);
+	background-repeat: no-repeat;
+	height: 140px;
+	z-index: 99;
+	background-size: 80px 80px;
+}
+
+#loadingmodel {
+	position: absolute;
+	display: none;
+	background: grey;
+	opacity: 0.1;
+	width: calc(100%);
+	height: calc(100%);
+	top: 0px;
+	left: 0px;
+	z-index: 9999;
+	cursor: wait;
+}
+
+#tidegraphdiv {
+	position: absolute;
+	right: 0px;
+	padding-right: 5px;
+	width: 100%;
+}
+
+#tidegraphpdiv {
+	padding-right: 5px;
+	position: absolute;
+	right: 0px;
+	width: 100%;
+}
+
+#tideerrordiv {
+	display: none;
+	position: absolute;
+	right: 0px;
+	padding-right: 5px;
+	background: grey;
+	color: white;
+	opacity: 0.8;
+	text-align: center;
+	font-weight: bold;
+	font-size: 26px;
+	font-family: Arial;
+	width: 100%;
+	cursor: default;
+}
+
+#journeyspan {
+	position: relative;
+	background-color: rgba(0, 0, 0, 0.1);
+	width: 0px;
+	z-index: 10;
+	margin-bottom: 10px;
+	margin-left: 69px;
+	cursor: pointer;
+}
+
+#dateicon {
+	width: 36px;
+	height: 32px;
+	background-image: url(../images/date.png);
+	display: inline-block;
+	background-size: 32px 32px;
+	background-repeat: no-repeat;
+	top: 10px;
+	position: relative;
+}
+
+#warningimg {
+	width: 48px;
+	height: 48px;
+	background-image: url(../images/warning.png);
+	display: inline-block;
+	background-size: 48px 48px;
+	background-repeat: no-repeat;
+	top: calc(37.5%);
+	position: relative;
+	margin-right: 10px;
+}
+
+#datepickerdiv {
+	position: absolute;
+	width: auto;
+	left: 20px;
+	font-size: 13px !important;
+}
+
+#taptorefreshdiv {
+	position: absolute;
+	background: grey;
+	color: white;
+	opacity: 0.8;
+	text-align: center;
+	font-weight: bold;
+	font-size: 26px;
+	font-family: Arial;
+	width: 100%;
+	cursor: pointer;
+}
+
+#addinput {
+	height: 28px;
+	background-position: center;
+	width: 42px;
+	cursor: pointer;
+	background-size: 27px 27px;
+	background-repeat: no-repeat;
+	background-image: url(../images/addfactor.png);
+}
+
+#removeinput {
+	position: absolute;
+	height: 38px;
+	bottom: 4px;
+	background-position: center;
+	left: 175px;
+	width: 58px;
+	cursor: pointer;
+	display: inline-block;
+	margin: 0 auto;
+	background-size: 42px 42px;
+	background-repeat: no-repeat;
+	background-image: url(../images/deletefactor.png);
+}
+
+.highcharts-tooltip-box {
+	fill: black;
+	fill-opacity: 0.0;
+	stroke-width: 0;
+	color: #000;
+	text-align: right;
+}
+
+.tooltiptext {
+	text-align: right;
+	font-size: 18px;
+	font-family: Arial;
+	font-weight: bold;
+}
+
+.tooltipdiv {
+	text-align: right;
+}
+
+#starttime {
+	position: absolute;
+	left: 0px;
+	text-align: right;
+	font-size: 18px;
+	font-family: Arial;
+	font-weight: bold;
+	width: 65px;
+	line-height: 20px;
+}
+
+#endtime {
+	position: absolute;
+	right: 10px;
+	text-align: right;
+	font-size: 18px;
+	font-family: Arial;
+	font-weight: bold;
+	width: 65px;
+	line-height: 20px;
+}
+
+#laponetime {
+	position: absolute;
+	text-align: right;
+	font-size: 18px;
+	font-family: Arial;
+	font-weight: bold;
+	width: 65px;
+	line-height: 20px;
+}
+
+#laponeline {
+	position: absolute;
+	text-align: right;
+	font-size: 18px;
+	font-family: Arial;
+	font-weight: bold;
+	width: 1px;
+	line-height: 20px;
+	background-color: #000;
+}
+
+#laptwoline {
+	position: absolute;
+	text-align: right;
+	font-size: 18px;
+	font-family: Arial;
+	font-weight: bold;
+	width: 1px;
+	line-height: 20px;
+	background-color: #000;
+}
+
+#laptwotime {
+	position: absolute;
+	text-align: right;
+	font-size: 18px;
+	font-family: Arial;
+	font-weight: bold;
+	width: 65px;
+	line-height: 20px;
+}
+
+select {
+	width: 72px;
+	border-style: none;
+	background-color: #E6E6E6;
+	padding: 3.6px;
+}
+
+#factorButton {
+	position: absolute;
+	height: 53px;
+	bottom: 3px;
+	background-image: url(../images/factors.png);
+	background-position: center;
+	left: 11px;
+	width: 48px;
+	cursor: pointer;
+	display: inline-block;
+	margin: 0 auto;
+	/* background-size: 42px 42px;
+	background-repeat: no-repeat; */
+	background-image: url(../images/Slideup.png);
+}
+
+#factordiv {
+	position: absolute;
+	height: 110px;
+	left: 0px;
+	background-color: white;
+	bottom: 0px;
+}
+
+#factor {
+	background-color: white;
+	position: absolute;
+	height: calc(44%);
+	bottom: 0px;
+	width: 100%;
+	z-index: 9998;
+	border-top: 1px solid;
+	padding-top: 10px;
+	box-sizing: border-box;
+}
+
+#textBoxContainer {
+	
+}
+
+.combodate select {
+	font-weight: bold;
+}
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+}
+
+.tooltip .tooltext {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+}
+
+.tooltip:hover .tooltext {
+	visibility: visible;
+}
+
+fieldset {
+	border: 1px solid #ddd !important;
+	margin: 0;
+	xmin-width: 0;
+	padding: 10px;
+	position: relative;
+	border-radius: 4px;
+	background-color: #f5f5f5;
+	padding-left: 10px !important;
+}
+
+legend {
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 0px;
+	width: 38%;
+	border: 1px solid #ddd !important;
+	border-radius: 4px;
+	padding: 5px 5px 5px 10px;
+	background-color: #ffffff;
+}
+
+select option[disabled] {
+	display: none;
+}
+
+.nopad {
+	margin: 0;
+	padding: 0px;
+}
+
+.form-group {
+	margin-bottom: 15px !important;
+}
+
+.mobiledisplay {
+	display: none;
+}
+
+.factorname {
+	width: 43%;
+}
+
+.control-label {
+	text-align: left !important;
+}
+
+.inputposition {
+	position: absolute;
+	left: 100px;
+}
+
+.closeimg {
+	height: 28px;
+	cursor: pointer;
+	position: relative;
+	right: -13px;
+	top: 0px;
+}
+
+#factorslist option {
+	font-size: 14px;
+	color: #ddd;
+	font-weight: normal !important;
+}
+
+.factorvalue {
+	color: #555;
+	font-weight: normal;
+	padding: 6px 4px;
+}
+
+.addmarkercss .tool {
+	visibility: hidden;
+	width: 120px;
+	background-color: red;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+}
+
+.addmarkercss:hover .tool {
+	visibility: visible;
+}
+
+.intermediatewpm {
+	cursor: pointer;
+	background-repeat: no-repeat;
+	background-size: 70px 70px;
+	position: absolute;
+	height: 70px;
+	width: 70px;
+	top: -68px;
+	left: -35px;
+}
+
+/** Badge style overwrite **/
+.badgeSingleDigit {
+	position: relative;
+	left: 25px !important;
+	top: 13px;
+	background: none !important;
+	font-size: 16px !important;
+	padding: 3px 5px !important;
+}
+
+.badgeDoubleDigit {
+	position: relative;
+	left: 23px !important;
+	top: 14px !important;
+	background: none !important;
+	font-size: 16px !important;
+	padding: 2px 2px !important;
+}
+
+.dropdown {
+	top: 196px;
+	right: 29px;
+	position: absolute;
+}
+
+.dropdown a {
+	cursor: pointer;
+	font-size: 16px;
+	color: white;
+}
+
+.usericon {
+	padding: 6px 0px 0px;
+	color: #fff;
+	font-size: 18px;
+	font-weight: bolder;
+	text-decoration: none;
+	text-align: center;
+	height: 32px;
+	width: 32px;
+	background-color: rgba(0, 60, 136, .5);
+	outline: none;
+	position: absolute;
+	cursor: pointer;
+	border-radius: 2px;
+}
+
+.dropdown-menu {
+	left: auto;
+	right: 14px;
+	top: -2px;
+}
+
+#stationId {
+	font-size: 12px;
+}
+
+
+@media only screen and (min-width:320px) and (max-width:480px) {
+	#stationId {
+		font-size: 10px;
+	}
+	.inputposition {
+		position: absolute;
+		left: 85px;
+	}
+	.closeimg {
+		right: -3px;
+	}
+	div#highcharts-12 {
+		line-height: 20px !important;
+	}
+	.mobile_labelfont {
+		font-size: 12px;
+		position: relative;
+		top: 10px;
+	}
+	.mobile_width {
+		width: 67.33% !important;
+	}
+	select {
+		width: 63px;
+	}
+	.factorname {
+		width: 47%;
+	}
+	#browsestructure {
+		top: 33px;
+		width: 307px;
+	}
+	#factor {
+		height: calc(65%);
+	}
+	.mobiledispnone {
+		display: none;
+	}
+	.mobilefactorheight {
+		height: 300px;
+		overflow-y: scroll;
+	}
+	.tooltiptext {
+		font-size: 11px;
+		line-height: 14px;
+	}
+	#starttime {
+		font-size: 11px;
+		line-height: 14px;
+	}
+	#endtime {
+		font-size: 11px;
+		line-height: 14px;
+	}
+	#laponetime {
+		font-size: 11px;
+		line-height: 14px;
+	}
+	#laptwotime {
+		font-size: 11px;
+		line-height: 14px;
+	}
+	#datepicker {
+		font-size: 10px !important;
+		height: 20px !important;
+	}
+	#dateicon {
+		width: 30px;
+		height: 30px;
+		top: 12px;
+	}
+	#factorButton {
+		left: 5px;
+		background-size: 36px 36px;
+		background-repeat: no-repeat;
+	}
+	.mobiledisplay {
+		display: block;
+	}
+	.mobiledispnone {
+		display: none;
+	}
+	#textBoxContainer {
+		
+	}
+	#datepickerdiv {
+		font-size: 11px !important;
+	}
+}
+
+@media only screen and (min-width:481px) and (max-width:767px) {
+	.inputposition {
+		position: absolute;
+		left: 85px;
+	}
+	.mobile_labelfont {
+		font-size: 12px;
+		position: relative;
+		top: 10px;
+	}
+	#browsestructure {
+		top: 40px;
+		width: 337px;
+	}
+	.mobiledisplay {
+		display: block;
+	}
+	.mobiledispnone {
+		display: none;
+	}
+	#stationId {
+		font-size: 10px;
+	}
+}
+
+@media only screen and (min-width:768px) and (max-width:991px) {
+	#browsestructure {
+		top: 40px;
+		width: 337px;
+	}
+	.mobiledispnone {
+		display: none;
+	}
+	.smdevices {
+		display: block;
+	}
+	.mobiledisplay {
+		display: block;
+	}
+	#textBoxContainer {
+		
+	}
+	#stationId {
+		font-size: 10px;
+	}
+}
+
+@media only screen and (min-width:992px) and (max-width:1200px) {
+	.form-group {
+		margin-bottom: 13px !important;
+	}
+	#browsestructure {
+		top: 37px;
+		width: 337px;
+	}
+	.tooltiptext {
+		font-size: 12px;
+		line-height: 16px;
+	}
+	#starttime {
+		font-size: 12px;
+		line-height: 16px;
+	}
+	#endtime {
+		font-size: 12px;
+		line-height: 16px;
+	}
+	#laponetime {
+		font-size: 12px;
+		line-height: 16px;
+	}
+	#laptwotime {
+		font-size: 12px;
+		line-height: 16px;
+	}
+	#textBoxContainer {
+		
+	}
+	#factorButton {
+		left: 5px;
+		background-size: 42px 42px;
+		background-repeat: no-repeat;
+	}
+	.mediumdevice {
+		overflow-y: auto;
+		height: calc(70%);
+		width: 100%;
+	}
+	.mediumdevice .form-group {
+		margin-right: 0px !important;
+	}
+	.factorname {
+		width: 51%;
+	}
+}
+
+@media only screen and (min-width:1200px) and (max-width:1400px) {
+	.closeimg {
+		right: 0px;
+	}
+	.factorname {
+		width: 48%;
+	}
+	.mobile_width {
+		width: 62%;
+	}
+	.tooltiptext {
+		font-size: 12px;
+		line-height: 16px;
+	}
+	#starttime {
+		font-size: 12px;
+		line-height: 16px;
+	}
+	#endtime {
+		font-size: 12px;
+		line-height: 16px;
+	}
+	#laponetime {
+		font-size: 12px;
+		line-height: 16px;
+	}
+	#laptwotime {
+		font-size: 12px;
+		line-height: 16px;
+	}
+}
+
+@media only screen and (min-width:1401px) and (max-width:1600px) {
+	.factorname {
+		width: 55%;
+	}
+	.form-group {
+		margin-bottom: 13px !important;
+	}
+	#browsestructure {
+		top: 37px;
+		width: 337px;
+	}
+	#factor {
+		height: calc(45%);
+	}
+	.tooltiptext {
+		font-size: 15px;
+	}
+	#starttime {
+		font-size: 15px;
+	}
+	#endtime {
+		font-size: 15px;
+	}
+	#laponetime {
+		font-size: 15px;
+	}
+	#laptwotime {
+		font-size: 15px;
+	}
+	#factorButton {
+		left: 5px;
+		background-size: 42px 42px;
+		background-repeat: no-repeat;
+	}
+	#textBoxContainer {
+		
+	}
+}
+
+@media only screen and (min-width:320px) and (max-width:480px) {
+	#browsestructure {
+		top: 33px;
+		width: 307px;
+	}
+	#stationId {
+		font-size: 10px;
+	}
+}

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd 
+	 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd ">
+
+	<context:component-scan base-package="com.ukc.util,com.ukc.dao" />
+
+	<bean id="dbProperties"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:config.properties</value>
+			</list>
+		</property>
+	</bean>
+
+<!-- 	<bean id="searchproperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location" value="classpath:search.properties"></property>
+	</bean> -->
+
+	<!-- For Connection Pooling from Tomcate use jndiObject provided by Spring -->
+<!-- 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/PMRDAOraDB" />
+	</bean> -->
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="${jdbc.driverClassName}" /> 
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" /> 
+		<property name="password" value="${jdbc.password}" /> 
+	</bean> 
+
+	<!-- jdbcTemplate uses dataSource -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+<!-- 	<bean id="urlUtils" class="com.pmrda.util.UrlUtils">
+		<property name="geonetworkurl" value="${geonetwork.hosturl}"></property>
+		<property name="geonetworkusername" value="${geonetwork.username}"></property>
+		<property name="geonetworkpassword" value="${geonetwork.password}"></property>
+		<property name="geonetworkip" value="${geonetwork.hostip}"></property>
+		<property name="geonetworkCatalogRecordListUrl" value="${geonetwork.catalog.recordlist.url}"></property>
+		<property name="geonetworkCatalogRecordUrl" value="${geonetwork.catalog.record.url}"></property>
+
+		<property name="frommailid" value="${email.frommailid}"></property>
+		<property name="frommailidpwd" value="${email.frommailid.pwd}"></property>
+		<property name="tomailid" value="${email.tomailid}"></property>
+		<property name="smtphost" value="${email.smtp.host}"></property>
+		<property name="smtpport" value="${email.smtp.port}"></property>
+
+		<property name="geoserverurl" value="${geoserver.hosturl}"></property>
+		<property name="geoserverbasemaphosturl" value="${geoserver.basemap.hosturl}"></property>
+		<property name="geoserveraerialhosturl" value="${geoserver.aerial.hosturl}"></property>
+		<property name="geoservercontourhosturl" value="${geoserver.contour.hosturl}"></property>
+		<property name="geoserverterrainhosturl" value="${geoserver.terrain.hosturl}"></property>
+		<property name="geoserverelevationhosturl" value="${geoserver.elevation.hosturl}"></property>
+
+		<property name="geoserverusername" value="${geoserver.username}"></property>
+		<property name="geoserverpassword" value="${geoserver.password}"></property>
+		<property name="geoserverworkspacename" value="${geoserver.workspacename}"></property>
+		<property name="geoserversrs" value="${geoserver.srs}"></property>
+
+		<property name="basemapname" value="${geoserver.layer.basemapname}"></property>
+		<property name="terrainname" value="${geoserver.layer.terrainname}"></property>
+		<property name="aerialname" value="${geoserver.layer.aerialname}"></property>
+		<property name="contourname" value="${geoserver.layer.contourname}"></property>
+		<property name="elevationname" value="${geoserver.layer.elevationname}"></property>
+		<property name="parcelLayerName" value="${geoserver.layer.parcelLayerName}"></property>
+		<property name="villageLayerName" value="${geoserver.layer.villageLayerName}"></property>
+		<property name="talukaLayerName" value="${geoserver.layer.talukaLayerName}"></property>
+		<property name="pmrdaLayerName" value="${geoserver.layer.pmrdaLayerName}"></property>
+		<property name="rasterLayerName" value="${geoserver.layer.rasterLayerName}"></property>
+
+
+		<property name="smshosturl" value="${sms.hosturl}"></property>
+		<property name="smsusername" value="${sms.username}"></property>
+		<property name="smspassword" value="${sms.password}"></property>
+		<property name="smssenderid" value="${sms.senderid}"></property>
+		<property name="smsmimetype" value="${sms.mimetype}"></property>
+		<property name="smsdr" value="${sms.dr}"></property>
+
+		<property name="jbpmRestUrl" value="${jbpm.rest.url}"></property>
+
+		<property name="pmrdathumbnailurl" value="${pmrda.thumnail.url}"></property>
+		<property name="firealarmhosturl" value="${firealarm.hosturl}"></property>
+		<property name="webgisdbserviceurl" value="${webgis.dbservice.url}"></property>
+		<property name="webgisdbserviceouturl" value="${webgis.dbservice.out.url}"></property>
+
+		<property name="saathbaarextracturl" value="${saathbaarextract.hosturl}"></property>
+		<property name="pmrdadatastoreurl" value="${pmrda.datastore.url}"></property>
+		<property name="buildingApprovalPlansPath"
+			value="${pmrda.datastore.subfolder.buildingApprovalPlansPath}"></property>
+		<property name="parcelDataPath" value="${pmrda.datastore.subfolder.parcelDataPath}"></property>
+	</bean> -->
+</beans>

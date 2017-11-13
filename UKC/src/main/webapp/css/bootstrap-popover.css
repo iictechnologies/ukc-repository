@@ -1,0 +1,181 @@
+.popover {
+	z-index: 11 !important;
+    position: absolute !important;
+    width: 300px !important;
+    min-width: 260px !important;
+    max-width: 300px !important;
+    display: none ;
+    font-size:10px !important;
+    background-color: #fff !important;
+    -webkit-border-radius: 5px !important;
+    -moz-border-radius: 5px !important;
+    border-radius: 5px !important;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2) !important;
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2) !important;
+    -webkit-background-clip: padding-box !important;
+    -moz-background-clip: padding !important; 
+    background-clip: padding-box !important;
+}
+
+.popover-title {
+	color: #f00 !important;
+    padding: 5px 5px 0px 0px !important; 
+    font-size: 12px !important;
+    font-weight: bold;
+    text-align: right;
+    background: #fff !important;
+    border: none !important;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+}
+.popover-title:empty {
+    display: none
+}
+.popover-content {
+    padding: 5px  !important;
+}
+.popover .arrow,
+.popover .arrow:after {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid
+}
+.popover .arrow {
+    border-width: 11px
+}
+.popover .arrow:after {
+    border-width: 10px;
+    content: ""
+}
+.popover.top .arrow {
+    bottom: -11px;
+    left: 50%;
+    margin-left: -11px;
+    border-top-color: #999;
+    border-top-color: rgba(0, 0, 0, 0.25);
+    border-bottom-width: 0
+}
+.popover.top .arrow:after {
+    bottom: 1px;
+    margin-left: -10px;
+    border-top-color: #fff;
+    border-bottom-width: 0
+}
+.popover.right .arrow {
+    top: 50%;
+    left: -11px;
+    margin-top: -11px;
+    border-right-color: #999;
+    border-right-color: rgba(0, 0, 0, 0.25);
+    border-left-width: 0
+}
+.popover.right .arrow:after {
+    bottom: -10px;
+    left: 1px;
+    border-right-color: #fff;
+    border-left-width: 0
+}
+.popover.bottom .arrow {
+    top: -11px;
+    left: 50%;
+    margin-left: -11px;
+    border-bottom-color: #999;
+    border-bottom-color: rgba(0, 0, 0, 0.25);
+    border-top-width: 0
+}
+.popover.bottom .arrow:after {
+    top: 1px;
+    margin-left: -10px;
+    border-bottom-color: #fff;
+    border-top-width: 0
+}
+.popover.left .arrow {
+    top: 50%;
+    right: -11px;
+    margin-top: -11px;
+    border-left-color: #999;
+    border-left-color: rgba(0, 0, 0, 0.25);
+    border-right-width: 0
+}
+.popover.left .arrow:after {
+    right: 1px;
+    bottom: -10px;
+    border-left-color: #fff;
+    border-right-width: 0
+}
+.popover-content input{
+	width: 46px;
+    display: inline-block;
+    font-weight: 500;
+    margin: 2px;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    font-size: 16px;
+    border-style: none;
+    background-color: #E6E6E6;
+    padding: 3px;
+}
+
+.popover-content span{
+	width: 55px;
+	display: inline-block;
+	padding: 2px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.popover-content {
+	font-size: 12px;
+}
+.popover-content b{
+	width: 113px;
+	display: inline-block;
+	padding: 2px;
+	font-weight: bold;
+	font-size: 14px;
+}
+.tooltip {
+	position: relative !important;
+	background: rgba(255, 255, 255, 0.9) !important;
+	border-radius: 4px !important;
+	color: black !important;
+	padding: 4px 8px !important;
+	opacity: 0.7;
+	white-space: nowrap !important;
+	z-index: 9 !important;
+}
+
+.tooltip-measure {
+	opacity: 1 !important;
+	font-weight: bold !important;
+	z-index: 2 !important;
+}
+
+.tooltip-static {
+	background-color: #ffcc33 !important;
+	color: black !important;
+	border: 1px solid grey !important;
+	z-index: 2 !important;
+}
+
+.tooltip-measure:before, .tooltip-static:before {
+	border-top: 6px solid rgba(255, 255, 255, 1) !important;
+	border-right: 6px solid transparent !important;
+	border-left: 6px solid transparent !important;
+	content: "" !important;
+	position: absolute !important;
+	bottom: -6px !important;
+	margin-left: -7px !important;
+	left: 50% !important;
+	z-index: 2 !important;
+}
+
+.tooltip-static:before {
+	border-top-color: #ffcc33 !important;
+}
